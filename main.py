@@ -24,11 +24,7 @@ import pyowm
 
 
 #Дата и время
-import datetime as dt
-from PyQt5.QtCore import QTimer, QTime, Qt
-import time
-import datetime as dt
-import sys
+
 # Импортируем типы из модуля, чтобы создавать кнопки
 from telebot import types
 
