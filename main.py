@@ -4,33 +4,6 @@ from flask import Flask, request
 #телебот
 import telebot
 
-#случайности для анекдота
-import random
-import sqlite3 as sql
-import sqlite3
-
-#блок событий
-
-
-from bs4 import BeautifulSoup
-import requests
-
-#для погоды
-
-from pyowm import OWM
-from pyowm.utils import config
-from pyowm.utils import timestamps
-import pyowm 
-
-
-#Дата и время
-import datetime as dt
-from PyQt5.QtCore import QTimer, QTime, Qt
-import time
-import datetime as dt
-import sys
-# Импортируем типы из модуля, чтобы создавать кнопки
-from telebot import types
 
 
 TOKEN = "1094693261:AAERSOmcqWAp38SMxc6Wbou_S8wTQsuLu8s"
