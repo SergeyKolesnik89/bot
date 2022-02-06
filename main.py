@@ -52,12 +52,6 @@ keyboard1.row('Анекдот', 'Погода')
 keyboard1.row( 'В этот день', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
-now = dt.datetime.utcnow()
-today_now = now + dt.timedelta(hours=6) # 
-print('Сейчас ' , today_now.strftime('%D %B %Y  %H:%M'),' по  времени астаны')
-time_1 = today_now.strftime('%D%B%Y  %H:%M')
-
-print (now)
 
 
    
@@ -104,8 +98,8 @@ def jokes_text(message):
         
         
            
- if __name__ == '__main__':
-    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
+ #if __name__ == '__main__':
+   # server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
    
 
 
