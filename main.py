@@ -16,10 +16,10 @@ import requests
 
 #для погоды
 
-#from pyowm import OWM
-#from pyowm.utils import config
-#from pyowm.utils import timestamps
-#import pyowm 
+from pyowm import OWM
+from pyowm.utils import config
+from pyowm.utils import timestamps
+import pyowm 
 
 
 #Дата и время
