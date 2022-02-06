@@ -4,9 +4,9 @@ from flask import Flask, request
 #телебот
 import telebot
 #случайности для анекдота
-#import random
-#import sqlite3 as sql
-#import sqlite3
+import random
+import sqlite3 as sql
+import sqlite3
 
 #блок событий
 
