@@ -23,11 +23,11 @@ import pyowm
 
 
 #Дата и время
-#import datetime as dt
+import datetime as dt
 
-#import time
-#import datetime as dt
-#import sys
+import time
+import datetime as dt
+import sys
 # Импортируем типы из модуля, чтобы создавать кнопки
 from telebot import types
 
