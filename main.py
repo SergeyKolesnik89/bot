@@ -67,30 +67,7 @@ print (now)
 
 @bot.message_handler(content_types=['text'])
     
-def jokes_text(message):
-    
-    if message.text.lower() == 'анекдот':
-        con = sql.connect('anekdot.db')
-        with con:
-            cur = con.cursor()
-            cur.execute("CREATE TABLE IF NOT EXISTS 'test' ('number' INT, 'name' STRING)")
-    
-            cur.execute("SELECT * FROM 'test' ORDER BY RANDOM() LIMIT 1")
-                
-            rows = cur.fetchmany()
-                
-            for row in rows:
-                    
-                    
-                bot.send_message(message.chat.id,row[0])
 
-
-
-          
-        con.commit()
-        cur.close()
-
-    
 
 #Блок приветствия
     elif message.text == 'Привет':
