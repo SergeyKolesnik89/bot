@@ -105,49 +105,7 @@ def jokes_text(message):
         
            
            
-    try:
-        
-        #place = 'Petropavlovsk'
-        if message.text == "привет" or message.text == "Привет":
-            pass
-        else:
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
-            print ('1')
-            
-            
-            print ('2')
-            w = observation.weather
-            print ('3')
-            temp = w.temperature('celsius')["temp"]
-            print ('4')            
-           
-             
-            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
-            
-            bot.send_message(message.chat.id, answer)
-            print ('5')
-            answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-            bot.send_message(message.chat.id, answer)
-            print ('6')
-            if temp <10:
-                answer = "На улице холодно, одевайся очень тепло"
-                print ('7')
-            elif temp <20:
-                answer = "Сейчас прохладно, одевайся теплее"
-                print ('8')
-            elif temp > 20:
-                answer = "Надевай что хочешь, там тепло"
-                print ('9')
-            bot.send_message(message.chat.id, answer)
-            
-            print ('10')
-    except:
-        #bot.send_message(message.chat.id, "Некорректно введен город")
-        print ('ошибка блеать')
-
-    #else:
-        #pass
+   
 
 while True:
     try:
