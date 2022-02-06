@@ -3,4 +3,4 @@ pyowm==3.2.0
 pyTelegramBotAPI==4.4.0
 soupsieve==2.2.1
 telebot==0.0.4
-telebot-utils==0.0.8
+
