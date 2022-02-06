@@ -45,11 +45,6 @@ server = Flask(__name__)
 
 
 
-keyboard1 = types.InlineKeyboardMarkup()
-keyboard1 = telebot.types.ReplyKeyboardMarkup()
-keyboard1.row('Анекдот', 'Погода')
-keyboard1.row( 'В этот день', 'О разработчиках')
-#keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
 
 
