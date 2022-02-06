@@ -104,20 +104,20 @@ def jokes_text(message):
         
         
            
-           
+ if __name__ == '__main__':
+    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
    
 
 
 
         
-#bot.delete_webhook()
-#bot.polling(none_stop=True, interval=0)
+bot.delete_webhook()
+bot.polling(none_stop=True, interval=0)
 
-#input() 
+input() 
 
 
-if __name__ == '__main__':
-    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
+
 
 
 
