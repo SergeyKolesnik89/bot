@@ -11,8 +11,8 @@ import sqlite3
 #блок событий
 
 
-#from bs4 import BeautifulSoup
-#import requests
+from bs4 import BeautifulSoup
+import requests
 
 #для погоды
 
