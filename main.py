@@ -124,7 +124,7 @@ elif message.text.lower() == 'погода':
 
 
         
-bot.delete_webhook()
+
 bot.polling(none_stop=True, interval=0)
 
 input() 
