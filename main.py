@@ -16,18 +16,18 @@ import telebot
 
 #для погоды
 
-from pyowm import OWM
-from pyowm.utils import config
-from pyowm.utils import timestamps
-import pyowm 
+#from pyowm import OWM
+#from pyowm.utils import config
+#from pyowm.utils import timestamps
+#import pyowm 
 
 
 #Дата и время
-import datetime as dt
-from PyQt5.QtCore import QTimer, QTime, Qt
-import time
-import datetime as dt
-import sys
+#import datetime as dt
+
+#import time
+#import datetime as dt
+#import sys
 # Импортируем типы из модуля, чтобы создавать кнопки
 from telebot import types
 
