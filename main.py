@@ -43,8 +43,7 @@ server = Flask(__name__)
 
 
 
-owm = OWM('b71a7de29575570f5971685c60ef5628')
-owm.config["language"] = "ru"
+
 
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
