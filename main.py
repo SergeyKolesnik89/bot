@@ -49,7 +49,7 @@ server = Flask(__name__)
         
 
 
-input() 
+
 
 
 
