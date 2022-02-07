@@ -48,7 +48,6 @@ server = Flask(__name__)
 
         
 
-bot.polling(none_stop=True, interval=0)
 
 input() 
 
