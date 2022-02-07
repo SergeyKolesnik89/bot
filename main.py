@@ -162,8 +162,8 @@ def jokes_text(message):
         #time.sleep(2)
 
         
-#bot.delete_webhook()
-#bot.polling(none_stop=True, interval=0)
+bot.delete_webhook()
+bot.polling(none_stop=True, interval=0)
 
 input() 
 
