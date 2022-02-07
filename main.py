@@ -170,8 +170,8 @@ def jokes_text(message):
         
 
 
-
-
+input()
+   bot.send_message(message.chat.id, "Некорректно")
 
 @server.route('/')
 def webhook():
