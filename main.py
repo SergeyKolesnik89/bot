@@ -47,7 +47,7 @@ server = Flask(__name__)
 
 
         
-bot.delete_webhook()
+
 bot.polling(none_stop=True, interval=0)
 
 input() 
