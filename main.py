@@ -39,7 +39,7 @@ APP_URL = f'https://belka418.herokuapp.com//{TOKEN}'
 #https://belka418.herokuapp.com/
 #bot = telebot.TeleBot("1094693261:AAERSOmcqWAp38SMxc6Wbou_S8wTQsuLu8s")
 bot = telebot.TeleBot(TOKEN)
-#server = Flask(__name__)
+server = Flask(__name__)
 
 
 
@@ -66,8 +66,8 @@ input()
    
 
 
-#if __name__ == '__main__':
-   #server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
+if __name__ == '__main__':
+   server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
 
 
 
