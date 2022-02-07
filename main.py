@@ -45,14 +45,6 @@ server = Flask(__name__)
 
 
 
-while True:
-    try:
-        bot.polling(none_stop=True)
-
-    except Exception as e:
-        print(e) 
-      
-        time.sleep(2)
 
         
 bot.delete_webhook()
