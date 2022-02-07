@@ -71,26 +71,8 @@ print (now)
 def jokes_text(message):
     
     if message.text.lower() == 'анекдот':
-        con = sql.connect('anekdot.db')
-        with con:
-            cur = con.cursor()
-            cur.execute("CREATE TABLE IF NOT EXISTS 'test' ('number' INT, 'name' STRING)")
-    
-            cur.execute("SELECT * FROM 'test' ORDER BY RANDOM() LIMIT 1")
-                
-            rows = cur.fetchmany()
-                
-            for row in rows:
-                    
-                    
-                bot.send_message(message.chat.id,row[0])
-
-
-
-          
-        con.commit()
-        cur.close()
-
+        bot.send_message(message.from_user.id, 'Мы скромные *_*')
+        
     
 
 #Блок приветствия
@@ -197,7 +179,7 @@ def jokes_text(message):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))           
 
 
