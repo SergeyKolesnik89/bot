@@ -152,20 +152,20 @@ def jokes_text(message):
     #else:
         #pass
 
-while True:
-    try:
-        bot.polling(none_stop=True)
+#while True:
+    #try:
+        #bot.polling(none_stop=True)
 
-    except Exception as e:
-        print(e) 
+    #except Exception as e:
+        #print(e) 
       
-        time.sleep(2)
+        #time.sleep(2)
 
         
-bot.delete_webhook()
-bot.polling(none_stop=True, interval=0)
+#bot.delete_webhook()
+#bot.polling(none_stop=True, interval=0)
 
-input() 
+#input() 
 
 
 
