@@ -50,7 +50,7 @@ owm.config["language"] = "ru"
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
 keyboard1.row('Анекдот', 'weather')
-keyboard1.row( 'В этот день', 'О разработчиках')
+keyboard1.row( 'Today', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
 
@@ -60,55 +60,30 @@ keyboard1.row( 'В этот день', 'О разработчиках')
 
         
 #Блок погоды
-@bot.message_handler(commands=['weather'])
-def weather(message):
+@bot.message_handler(commands=['Today'])
+def Today(message):
     
-    bot.send_message(message.chat.id,'Введите город . . . ')
-       
+     
+    URL = 'https://kakoysegodnyaprazdnik.ru/'
+    HEADERS = {
+        'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
+    }
+    response = requests.get(URL, headers = HEADERS)
+    soup = BeautifulSoup(response.content, 'html.parser')
         
-        
-           
-           
-    try:
-        
-        #place = 'Petropavlovsk'
-        if message.text == "привет" or message.text == "Привет":
-            pass
-        else:
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
-            print ('1')
-            
-            
-            print ('2')
-            w = observation.weather
-            print ('3')
-            temp = w.temperature('celsius')["temp"]
-            print ('4')            
-           
-             
-            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
-            
-            bot.send_message(message.chat.id, answer)
-            print ('5')
-            answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-            bot.send_message(message.chat.id, answer)
-            print ('6')
-            if temp <10:
-                answer = "На улице холодно, одевайся очень тепло"
-                print ('7')
-            elif temp <20:
-                answer = "Сейчас прохладно, одевайся теплее"
-                print ('8')
-            elif temp > 20:
-                answer = "Надевай что хочешь, там тепло"
-                print ('9')
-            bot.send_message(message.chat.id, answer)
-            
-            print ('10')
-    except:
-        #bot.send_message(message.chat.id, "Некорректно введен город")
-        print ('ошибка блеать')
+    items = soup.findAll('div', class_='main')
+    comps = []
+
+    for item in items:
+        comps.append({
+        'title' : item.find('span').get_text(strip = True)
+                            
+         })
+
+    global comp
+    for comp in comps:
+        bot.send_message(message.chat.id,(f'{comp["title"]}  '))
+        print (f'{comp["title"]}  ')
 
         
 
