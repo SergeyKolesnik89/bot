@@ -58,11 +58,11 @@ keyboard1.row( 'today', 'О разработчиках')
     
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
-
+    bot.reply_to(message, 'Hello, ' + message.from_user.first_name ,  reply_markup=keyboard1)
+    #bot.send_message(message.from_user.id,   reply_markup=keyboard1)
         
 #Блок погоды
-@bot.message_handler(content_types=['text'])
+@bot.message_handler(content_types=['today'])
     URL = 'https://kakoysegodnyaprazdnik.ru/'
     HEADERS = {
         'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
