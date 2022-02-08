@@ -63,7 +63,7 @@ keyboard1.row( 'В этот день', 'О разработчиках')
 @bot.message_handler(commands=['погода'])
 def weather(message):
     
-        bot.send_message(message.chat.id,'Введите город . . . ')
+    bot.send_message(message.chat.id,'Введите город . . . ')
        
         
         
@@ -113,8 +113,6 @@ def weather(message):
         
 
 
-input()
-   bot.send_message(message.chat.id, "Некорректно")
 
 @server.route('/')
 def webhook():
