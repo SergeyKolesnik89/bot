@@ -49,7 +49,7 @@ owm.config["language"] = "ru"
 
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
-keyboard1.row('Анекдот', 'Погода')
+keyboard1.row('Анекдот', 'weather')
 keyboard1.row( 'В этот день', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
@@ -60,7 +60,7 @@ keyboard1.row( 'В этот день', 'О разработчиках')
 
         
 #Блок погоды
-@bot.message_handler(commands=['погода'])
+@bot.message_handler(commands=['weather'])
 def weather(message):
     
     bot.send_message(message.chat.id,'Введите город . . . ')
