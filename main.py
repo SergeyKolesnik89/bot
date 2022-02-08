@@ -50,7 +50,7 @@ owm.config["language"] = "ru"
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
 keyboard1.row('Анекдот', 'weather')
-keyboard1.row( 'Today', 'О разработчиках')
+keyboard1.row( 'today', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
 
@@ -60,8 +60,8 @@ keyboard1.row( 'Today', 'О разработчиках')
 
         
 #Блок погоды
-@bot.message_handler(commands=['Today'])
-def Today(message):
+@bot.message_handler(commands=['today'])
+def today(message):
     
      
     URL = 'https://kakoysegodnyaprazdnik.ru/'
@@ -86,6 +86,9 @@ def Today(message):
         print (f'{comp["title"]}  ')
 
         
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
 
 
 
