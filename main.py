@@ -53,63 +53,6 @@ keyboard1.row('Анекдот', 'Погода')
 keyboard1.row( 'В этот день', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
-now = dt.datetime.utcnow()
-today_now = now + dt.timedelta(hours=6) # 
-print('Сейчас ' , today_now.strftime('%D %B %Y  %H:%M'),' по  времени астаны')
-time_1 = today_now.strftime('%D%B%Y  %H:%M')
-
-print (now)
-
-
-   
-
-
-
-
-@bot.message_handler(content_types=['text'])
-    
-def jokes_text(message):
-    
-    if message.text.lower() == 'анекдот':
-        bot.send_message(message.from_user.id, 'Мы скромные *_*')
-        
-    
-
-#Блок приветствия
-    elif message.text == 'Привет':
-        bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot и у меня лапки ^^ ')
-
-    elif message.text.lower() == 'о разработчиках':
-        bot.send_message(message.from_user.id, 'Мы скромные *_*')
-
-#Блок событий
-
-    elif message.text == '/start':
-        bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
-    
-    elif message.text == 'В этот день':
-        URL = 'https://kakoysegodnyaprazdnik.ru/'
-        HEADERS = {
-            'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
-        }
-        response = requests.get(URL, headers = HEADERS)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        items = soup.findAll('div', class_='main')
-        comps = []
-
-        for item in items:
-            comps.append({
-            'title' : item.find('span').get_text(strip = True)
-                            
-            })
-
-        global comp
-        for comp in comps:
-            bot.send_message(message.chat.id,(f'{comp["title"]}  '))
-            print (f'{comp["title"]}  ')
-            
-
 
 
     
@@ -117,9 +60,9 @@ def jokes_text(message):
 
         
 #Блок погоды
-            
-    elif message.text.lower() == 'погода':
-        
+@bot.message_handler(commands=['погода'])
+def weather(message):
+    
         bot.send_message(message.chat.id,'Введите город . . . ')
        
         
