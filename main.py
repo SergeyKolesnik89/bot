@@ -58,8 +58,8 @@ keyboard1.row( 'today', 'О разработчиках')
     
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, 'Hello, ' + message.from_user.first_name ,  reply_markup=keyboard1)
-    #bot.send_message(message.from_user.id,   reply_markup=keyboard1)
+    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
+    bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
         
 #Блок погоды
 @bot.message_handler(content_types=['today'])
