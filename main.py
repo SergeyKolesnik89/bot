@@ -62,7 +62,8 @@ def start(message):
     bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
         
 #Блок погоды
-@bot.message_handler(content_types=['today'])
+@bot.message_handler(commands=['today'])
+#@bot.message_handler(content_types=['today'])
 def today(message):
     URL = 'https://kakoysegodnyaprazdnik.ru/'
     HEADERS = {
