@@ -158,10 +158,10 @@ elif message.text.lower() == 'погода':
              
         answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
             
-        bot.send_message(message.chat.id, answer)
+        bot.send_message(message.from_user.id, answer)
             
         answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-        bot.send_message(message.chat.id, answer)
+        bot.send_message(message.from_user.id, answer)
             
         if temp <10:
             answer = "На улице холодно, одевайся очень тепло"
@@ -172,7 +172,7 @@ elif message.text.lower() == 'погода':
         elif temp > 20:
             answer = "Надевай что хочешь, там тепло"
                 
-        bot.send_message(message.chat.id, answer)        
+        bot.send_message(message.from_user.id, answer)        
   
             
             
