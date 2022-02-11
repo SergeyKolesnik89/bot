@@ -134,7 +134,7 @@ def jokes_text(message):
             
 elif message.text.lower() == 'погода':
         
-        bot.send_message(message.chat.id,'Введите город . . . ')
+    bot.send_message(message.chat.id,'Введите город . . . ')
        
         
         
