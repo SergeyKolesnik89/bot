@@ -134,38 +134,38 @@ def jokes_text(message):
             
     elif message.text.lower() == 'погода':
         bot.send_message(message.from_user.id,'Введите город . . . ')
-        
-        mgr = owm.weather_manager()
-        observation = mgr.weather_at_place(message.text)
-              
+        if message.text.lower() == text:
+            mgr = owm.weather_manager()
+            observation = mgr.weather_at_place(message.text)
 
 
-                
-        w = observation.weather
-                
-        temp = w.temperature('celsius')["temp"]
-                          
 
 
-        answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
+            w = observation.weather
 
-        bot.send_message(message.from_user.id, answer)
-               
-        answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-        bot.send_message(message.chat.id, answer)
-                
-        if temp <10:
-            answer = "На улице холодно, одевайся очень тепло"
-                    
-        elif temp <20:
-            answer = "Сейчас прохладно, одевайся теплее"
-                    
-        elif temp > 20:
-            answer = "Надевай что хочешь, там тепло"
-                    
-        bot.send_message(message.from_user.id, answer)
+            temp = w.temperature('celsius')["temp"]
 
-                  
+
+
+            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
+
+            bot.send_message(message.from_user.id, answer)
+
+            answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
+            bot.send_message(message.chat.id, answer)
+
+            if temp <10:
+                answer = "На улице холодно, одевайся очень тепло"
+
+            elif temp <20:
+                answer = "Сейчас прохладно, одевайся теплее"
+
+            elif temp > 20:
+                answer = "Надевай что хочешь, там тепло"
+
+            bot.send_message(message.from_user.id, answer)
+        else:
+            pass
         
         
            
