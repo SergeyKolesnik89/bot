@@ -61,7 +61,7 @@ def start(message):
     bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
     bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
         
-#Блок погоды
+
 @bot.message_handler(content_types=['text'])
     
 def jokes_text(message):
@@ -140,44 +140,44 @@ elif message.text.lower() == 'погода':
         
            
            
-    try:
+    #try:
         
         
-        if message.text == "привет" or message.text == "Привет":
-            pass
-        else:
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
+    if message.text == "привет" or message.text == "Привет":
+        pass
+    else:
+        mgr = owm.weather_manager()
+        observation = mgr.weather_at_place(message.text)
             
             
             
             
-            w = observation.weather
+        w = observation.weather
             
-            temp = w.temperature('celsius')["temp"]
+        temp = w.temperature('celsius')["temp"]
                    
            
              
-            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
+        answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
             
-            bot.send_message(message.chat.id, answer)
+        bot.send_message(message.chat.id, answer)
             
-            answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-            bot.send_message(message.chat.id, answer)
+        answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
+        bot.send_message(message.chat.id, answer)
             
-            if temp <10:
-                answer = "На улице холодно, одевайся очень тепло"
+        if temp <10:
+            answer = "На улице холодно, одевайся очень тепло"
                 
-            elif temp <20:
-                answer = "Сейчас прохладно, одевайся теплее"
+        elif temp <20:
+            answer = "Сейчас прохладно, одевайся теплее"
                 
-            elif temp > 20:
-                answer = "Надевай что хочешь, там тепло"
+        elif temp > 20:
+            answer = "Надевай что хочешь, там тепло"
                 
-            bot.send_message(message.chat.id, answer)
+        bot.send_message(message.chat.id, answer)
             
             
-    except:
+    #except:
         #bot.send_message(message.chat.id, "Некорректно введен город")
        
             
