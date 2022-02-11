@@ -132,9 +132,9 @@ def jokes_text(message):
         
 #Блок погоды
             
-elif message.text.lower() == 'погода':
+    elif message.text.lower() == 'Погода':
         
-    bot.send_message(message.from_user.id,'Введите город . . . ')
+        bot.send_message(message.from_user.id,'Введите город . . . ')
        
         
         
