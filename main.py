@@ -138,7 +138,7 @@ def jokes_text(message):
 
         
 #Блок погоды
-@bot.message_handler(commands=['weather'])
+@bot.message_handler(commands=['Погода'])
 def weather(message):
     if message.text == 'погода':
         bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
