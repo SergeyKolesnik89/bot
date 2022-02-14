@@ -136,14 +136,7 @@ def jokes_text(message):
     elif message.text.lower() == 'погода':
     try:
         
-        #place = 'Petropavlovsk'
-        if message.text == "привет" or message.text == "Привет":
-            pass
-        else:
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
-           
-            
+        pass
             
            
             
