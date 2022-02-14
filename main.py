@@ -134,17 +134,17 @@ def jokes_text(message):
 #Блок погоды
             
     elif message.text.lower() == 'погода':
-    try:
-        
-        pass
-            
-           
-            
-            
-            
-    except:
-        bot.send_message(message.chat.id, "Некорректно введен город")
-        
+        try:
+
+            pass
+
+
+
+
+
+        except:
+            bot.send_message(message.chat.id, "Некорректно введен город")
+
        
             
 
