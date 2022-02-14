@@ -134,16 +134,31 @@ def jokes_text(message):
 #Блок погоды
             
     elif message.text.lower() == 'погода':
-        try:
+        bot.send_message(message.from_user.id,'Введите город . . . ')
+        mgr = owm.weather_manager()
+        observation = mgr.weather_at_place(message.text)
+           
+        w = observation.weather
+          
+        temp = w.temperature('celsius')["temp"]
+                    
+           
+             
+        answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
+            
+        bot.send_message(message.chat.id, answer)
+          
+        answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
+        bot.send_message(message.chat.id, answer)
+           
+           
+               
+       
 
-            pass
 
 
 
-
-
-        except:
-            bot.send_message(message.chat.id, "Некорректно введен город")
+        
 
        
             
