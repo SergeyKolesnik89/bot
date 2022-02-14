@@ -135,7 +135,7 @@ def jokes_text(message):
 
     
 
-@bot.message_handler(content_types=['text'])
+@bot.message_handler(content_types=['weather'])
 async def get_weather_in_city(message: types.Message):
     try:
         weather: WeatherInfo = await get_weather_for_city(message.text)
