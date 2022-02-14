@@ -134,6 +134,7 @@ def jokes_text(message):
             
     elif message.text.lower() == 'погода':
         bot.send_message(message.from_user.id,'Введите город . . . ')
+        @bot.message_handler(content_types=['text'])
         if message.text.lower() == text:
             mgr = owm.weather_manager()
             observation = mgr.weather_at_place(message.text)
