@@ -150,7 +150,7 @@ def weather(message):
             temp = w.temperature('celsius')['temp']
             today = datetime.datetime.today()
         #answers-weather
-            answer = 'Сегодня, ' + (today.strftime("%d/%m/%Y")) + ' ' + 'в городе ' + message.text + ' ' + w.detailed_status + '\n'
+            #answer = 'Сегодня, ' + (today.strftime("%d/%m/%Y")) + ' ' + 'в городе ' + message.text + ' ' + w.detailed_status + '\n'
             answer += 'Температура в районе ' + str(temp) + ' по Цельсию.' + '\n\n'
             if temp < 5:
                 answer += 'Сейчас на улице холодно, одевайся тепло!'
