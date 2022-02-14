@@ -133,7 +133,8 @@ def jokes_text(message):
 #Блок погоды
             
     elif message.text.lower() == 'погода':
-    @bot.message_handler(content_types=['text'])
+    
+        @bot.message_handler(content_types=['text'])
         bot.send_message(message.from_user.id,'Введите город . . . ')
         
         if message.text.lower() == text:
