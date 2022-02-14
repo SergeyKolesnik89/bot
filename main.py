@@ -140,7 +140,7 @@ def jokes_text(message):
 #Блок погоды
 @bot.message_handler(commands=['weather'])
 def weather(message):
-    if message.text == 'погода':
+    if message.text == '/weather@PPTlo_bot' or '/weather':
         bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
         bot.message_handler(content_types=['text'])
         try:
@@ -161,7 +161,6 @@ def weather(message):
                 bot.send_message(message.chat.id, answer)
         except:
             bot.send_message(message.chat.id, 'Я ещё не знаю такого города :(\nДавай посмотрим погоду в другом месте?')
-           
            
                
        
