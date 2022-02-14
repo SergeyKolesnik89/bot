@@ -4,7 +4,7 @@
 
 
 
-mport os
+import os
 
 from flask import Flask, request
 #телебот
