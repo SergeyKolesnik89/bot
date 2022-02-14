@@ -64,7 +64,7 @@ def start(message):
 
 @bot.message_handler(content_types=['text'])
     
-def winter():
+def winter(message):
     if message.text.lower() == text:
             mgr = owm.weather_manager()
             observation = mgr.weather_at_place(message.text)
