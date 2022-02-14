@@ -137,26 +137,26 @@ def jokes_text(message):
         
         bot.send_message(message.from_user.id,'Введите город . . . ')
         @bot.message_handler(content_types=['text'])
-        if message.text.lower() == text:
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
+            if message.text.lower() == text:
+                mgr = owm.weather_manager()
+                observation = mgr.weather_at_place(message.text)
 
 
 
 
-            w = observation.weather
+                w = observation.weather
 
-            temp = w.temperature('celsius')["temp"]
+                temp = w.temperature('celsius')["temp"]
 
 
 
-            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
+                answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
 
-            bot.send_message(message.from_user.id, answer)
+                bot.send_message(message.from_user.id, answer)
 
-            
-        else:
-            bot.send_message(message.from_user.id,' . . . ')
+
+            else:
+                bot.send_message(message.from_user.id,' . . . ')
 
         
            
