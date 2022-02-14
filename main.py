@@ -167,8 +167,8 @@ def jokes_text(message):
                 answer = "Надевай что хочешь, там тепло"
 
             bot.send_message(message.from_user.id, answer)
-         else:
-             bot.send_message(message.from_user.id,' . . . ')
+        else:
+            bot.send_message(message.from_user.id,' . . . ')
 
         
            
