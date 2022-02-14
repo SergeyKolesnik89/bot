@@ -134,7 +134,7 @@ def jokes_text(message):
             
     elif message.text.lower() == 'погода':
     
-        @bot.message_handler(content_types=['text'])
+        
         bot.send_message(message.from_user.id,'Введите город . . . ')
         
         if message.text.lower() == text:
@@ -168,7 +168,7 @@ def jokes_text(message):
 
             bot.send_message(message.from_user.id, answer)
          else:
-             pass
+             bot.send_message(message.from_user.id,' . . . ')
 
         
            
