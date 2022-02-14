@@ -1,4 +1,10 @@
-import os
+
+
+
+
+
+
+mport os
 
 from flask import Flask, request
 #телебот
@@ -132,10 +138,10 @@ def jokes_text(message):
 
         
 #Блок погоды
-    @bot.message_handler(content_types=['text'])        
-    elif message.text.lower() == 'погода':
-        bot.send_message(message.from_user.id,'Введите город . . . ')
-        
+@bot.message_handler(commands=['погода'])
+def weather(message):
+    if message.text == '/weather@PPTlo_bot' or '/weather':
+        bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
         bot.message_handler(content_types=['text'])
         try:
             mgr = owm.weather_manager()
