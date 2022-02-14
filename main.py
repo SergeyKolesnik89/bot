@@ -171,9 +171,8 @@ def jokes_text(message):
                
             bot.send_message(message.chat.id, answer)
             
-           
-    except:
-        bot.send_message(message.chat.id, "Некорректно введен город")
+        except:
+            bot.send_message(message.chat.id, "Некорректно введен город")
     
                
        
