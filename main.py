@@ -136,21 +136,25 @@ def jokes_text(message):
     elif message.text.lower() == 'погода':
         bot.send_message(message.from_user.id,'Введите город . . . ')
         
-        mgr = owm.weather_manager()
-        observation = mgr.weather_at_place(message.text)
-           
-        w = observation.weather
-          
-        temp = w.temperature('celsius')["temp"]
-                    
-           
-             
-        answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
-            
-        bot.send_message(message.chat.id, answer)
-          
-        answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-        bot.send_message(message.chat.id, answer)
+        bot.message_handler(content_types=['text'])
+        try:
+            mgr = owm.weather_manager()
+            observation = mgr.weather_at_place(message.text)
+            w = observation.weather
+            temp = w.temperature('celsius')['temp']
+            today = datetime.datetime.today()
+        #answers-weather
+            answer = 'Сегодня, ' + (today.strftime("%d/%m/%Y")) + ' ' + 'в городе ' + message.text + ' ' + w.detailed_status + '\n'
+            answer += 'Температура в районе ' + str(temp) + ' по Цельсию.' + '\n\n'
+            if temp < 5:
+                answer += 'Сейчас на улице холодно, одевайся тепло!'
+            elif temp < 17:
+                answer += 'Сейчас на улице прохладно, одевайся потеплее!'
+            else:
+                answer += 'Погода просто каеф! Одевайся как душе угодно!'
+                bot.send_message(message.chat.id, answer)
+        except:
+            bot.send_message(message.chat.id, 'Я ещё не знаю такого города :(\nДавай посмотрим погоду в другом месте?')
            
            
                
