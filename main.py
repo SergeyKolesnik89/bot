@@ -142,40 +142,31 @@ def jokes_text(message):
         bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
         bot.message_handler(content_types=['text'])
         try:
-            
-            mgr = owm.weather_manager()
-            observation = mgr.weather_at_place(message.text)
-       
-            
-            
-        
-            w = observation.weather
-   
-            temp = w.temperature('celsius')["temp"]
-       
-           
-             
-            answer = (f'В городе {message.text} сейчас { w.detailed_status } '"\n")
-            
-            bot.send_message(message.chat.id, answer)
-          
-            answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
-            bot.send_message(message.chat.id, answer)
-            if temp <10:
-                answer = "На улице холодно, одевайся очень тепло"
-           
-            elif temp <20:
-                answer = "Сейчас прохладно, одевайся теплее"
-             
-            elif temp > 20:
-                answer = "Надевай что хочешь, там тепло"
-               
-            bot.send_message(message.chat.id, answer)
-            
-            
-        except:
-            #pass
-            bot.send_message(message.chat.id, "Некорректно введен город")
+            # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
+            observation = owm.weather_at_place(message.text)
+            weather = observation.get_weather()
+            temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
+            temp = round(temp)
+            print(time.ctime(), "User id:", message.from_user.id)
+            print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
+
+            # Формируем и выводим ответ
+            answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
+            answer += "Температура около: " + str(temp) + " С" + "\n\n"
+            if temp < -10:
+                answer += "Пи**ц как холодно, одевайся как танк!"
+            elif temp < 10:
+                answer += "Холодно, одевайся теплее."
+            elif temp > 25:
+                answer += "Жарень."
+            else:
+                answer += "На улице вроде норм!!!"
+        except Exception:
+            answer = "Не найден город, попробуйте ввести название снова.\n"
+            print(time.ctime(), "User id:", message.from_user.id)
+            print(time.ctime(), "Message:", message.text.title(), 'Error')
+
+        bot.send_message(message.chat.id, answer)  # Ответить сообщением
     
                
        
