@@ -139,8 +139,8 @@ def jokes_text(message):
 
 
     elif message.text == 'погода':
-        bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
-        bot.message_handler(content_types=['text'])
+        bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
+        
         try:
             # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
             observation = owm.weather_at_place(message.text)
