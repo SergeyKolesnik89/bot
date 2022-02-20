@@ -161,7 +161,17 @@ def jokes_text(message):
           
             answer = (f'Температура сейчас в районе  {temp}  градусов Цельсия' "\n\n")
             bot.send_message(message.chat.id, answer)
-         
+            if temp <10:
+                answer = "На улице холодно, одевайся очень тепло"
+           
+            elif temp <20:
+                answer = "Сейчас прохладно, одевайся теплее"
+             
+            elif temp > 20:
+                answer = "Надевай что хочешь, там тепло"
+               
+            bot.send_message(message.chat.id, answer)
+            
             
         except:
             #pass
