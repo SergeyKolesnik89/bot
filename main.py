@@ -55,7 +55,7 @@ owm.config["language"] = "ru"
 
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
-keyboard1.row('Анекдот', 'weather')
+keyboard1.row('Анекдот', 'Погода')
 keyboard1.row( 'В этот день', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
@@ -136,9 +136,9 @@ def jokes_text(message):
     
         
 #Блок погоды
-@bot.message_handler(commands=['text'])
 
-    elif message.text == 'weather':
+
+    elif message.text == 'погода':
         bot.send_message(message.chat.id, 'В каком населённом пункте хотим узнать погоду?')
         bot.message_handler(content_types=['text'])
         try:
