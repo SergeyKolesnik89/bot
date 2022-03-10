@@ -1,9 +1,5 @@
 
 
-
-
-
-
 import os
 
 from flask import Flask, request
@@ -137,18 +133,37 @@ def jokes_text(message):
         
 #Блок погоды
 
-@bot.message_handler(content_types='text')
-def text(message):
-    if message.text == 'Погода':
-        bot.send_message(message.chat.id, 'Введи город')
-        bot.register_next_step_handler(send, city)
 
-
-
-    else:
+    elif message.text == 'погода':
+        bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
-        bot.send_message(message.chat.id, 'Введи')
+        try:
+            # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
+            observation = owm.weather_at_place(message.text)
+            weather = observation.get_weather()
+            temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
+            temp = round(temp)
+            print(time.ctime(), "User id:", message.from_user.id)
+            print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
 
+            # Формируем и выводим ответ
+            answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
+            answer += "Температура около: " + str(temp) + " С" + "\n\n"
+            if temp < -10:
+                answer += "Пи**ц как холодно, одевайся как танк!"
+            elif temp < 10:
+                answer += "Холодно, одевайся теплее."
+            elif temp > 25:
+                answer += "Жарень."
+            else:
+                answer += "На улице вроде норм!!!"
+        except Exception:
+            answer = "Не найден город, попробуйте ввести название снова.\n"
+            print(time.ctime(), "User id:", message.from_user.id)
+            print(time.ctime(), "Message:", message.text.title(), 'Error')
+
+        bot.send_message(message.chat.id, answer)  # Ответить сообщением
+    
                
        
 
@@ -181,8 +196,6 @@ def webhook():
 
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
-
-
 
 
 
