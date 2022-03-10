@@ -134,7 +134,7 @@ def jokes_text(message):
 #Блок погоды
 
 
-    elif message.text == 'погода':
+    elif message.text == 'Погода':
         bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         try:
