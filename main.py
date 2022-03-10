@@ -158,9 +158,9 @@ def jokes_text(message):
                 answer += "Жарень."
             else:
                 answer += "На улице вроде норм!!!"
-        except:
+        #except:
         #except Exception:
-            answer = "Не найден город, попробуйте ввести название снова.\n"
+            #answer = "Не найден город, попробуйте ввести название снова.\n"
             #print(time.ctime(), "User id:", message.from_user.id)
             #print(time.ctime(), "Message:", message.text.title(), 'Error')
 
