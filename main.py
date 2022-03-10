@@ -143,8 +143,8 @@ def jokes_text(message):
             weather = observation.get_weather()
             temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
             temp = round(temp)
-            print(time.ctime(), "User id:", message.from_user.id)
-            print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
+            #print(time.ctime(), "User id:", message.from_user.id)
+            #print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
 
             # Формируем и выводим ответ
             answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
@@ -157,10 +157,11 @@ def jokes_text(message):
                 answer += "Жарень."
             else:
                 answer += "На улице вроде норм!!!"
-        except Exception:
+        except:
+        #except Exception:
             answer = "Не найден город, попробуйте ввести название снова.\n"
-            print(time.ctime(), "User id:", message.from_user.id)
-            print(time.ctime(), "Message:", message.text.title(), 'Error')
+            #print(time.ctime(), "User id:", message.from_user.id)
+            #print(time.ctime(), "Message:", message.text.title(), 'Error')
 
         bot.send_message(message.chat.id, answer)  # Ответить сообщением
     
