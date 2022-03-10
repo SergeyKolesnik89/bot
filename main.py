@@ -139,7 +139,7 @@ def jokes_text(message):
 
 @bot.message_handler(content_types='text')
 def text(message):
-    if message.text == 'weather':
+    if message.text == 'Погода':
         bot.send_message(message.chat.id, 'Введи город')
         bot.register_next_step_handler(send, city)
 
