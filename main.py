@@ -137,33 +137,17 @@ def jokes_text(message):
         
 #Блок погоды
 
-def city(message):
-    bot.send_message(message.chat.id, 'Ищу погоду в городе {city}'.format(city=message.text))
-    observation = owm.weather_at_place(message.text)
-    w = observation.get_weather()
-    temp = w.get_temperature('celsius')["temp"]
-    answer1 = "В городе " + message.text + " сейчас " + w.get_detailed_status() + '\n'
-    answer1 += " Температура сейчас в районе " + str(temp) + '\n'
-    if temp < 10:
-        answer1 += 'На улице холодно, шо пиздец, оденься, как зимой!'
-    elif temp < 15:
-        answer1 += 'На улице чет холодновато, оденься теплее!'
-    elif temp < 20:
-        answer1 += "На улице в принципе тепло, но в шортах не рекомендую выходить"
-    elif temp > 20:
-        answer1 += "На улцие жара, шо пиздец "
-    else:
-        answer1 += "Введи норм город или другю команду"
-    bot.send_message(message.chat.id, answer1)
-    
-    
 @bot.message_handler(content_types='text')
 def text(message):
-    if message.text == 'Погода':
-        send = bot.send_message(message.chat.id, 'Введи город')
+    if message.text == 'weather':
+        bot.send_message(message.chat.id, 'Введи город')
         bot.register_next_step_handler(send, city)
 
 
+
+    else:
+        
+        bot.send_message(message.chat.id, 'Введи')
 
                
        
