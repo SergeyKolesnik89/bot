@@ -138,11 +138,12 @@ def jokes_text(message):
         bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         try:
+            mgr = owm.weather_manager()
             # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
-            observation = owm.weather_at_place(message.text)
-            weather = observation.get_weather()
-            temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
-            temp = round(temp)
+            observation = mgr.weather_at_place(message.text)
+            w = observation.weather
+            temp = w.temperature('celsius')["temp"] # Присваиваем переменной значение температуры из таблицы
+            #temp = round(temp)
             #print(time.ctime(), "User id:", message.from_user.id)
             #print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
 
