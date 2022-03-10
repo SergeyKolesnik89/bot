@@ -142,25 +142,29 @@ def jokes_text(message):
         bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         try:
-            # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
-            observation = owm.weather_at_place(Петропавловск)
-            weather = observation.get_weather()
-            temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
-            temp = round(temp)
-            print(time.ctime(), "User id:", message.from_user.id)
-            print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
+            if message.text == city:
+                # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
+                observation = owm.weather_at_place(city)
+                weather = observation.get_weather()
+                temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
+                temp = round(temp)
+                print(time.ctime(), "User id:", message.from_user.id)
+                print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
 
-            # Формируем и выводим ответ
-            answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
-            answer += "Температура около: " + str(temp) + " С" + "\n\n"
-            if temp < -10:
-                answer += "Пи**ц как холодно, одевайся как танк!"
-            elif temp < 10:
-                answer += "Холодно, одевайся теплее."
-            elif temp > 25:
-                answer += "Жарень."
+                # Формируем и выводим ответ
+                answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
+                answer += "Температура около: " + str(temp) + " С" + "\n\n"
+                if temp < -10:
+                    answer += "Пи**ц как холодно, одевайся как танк!"
+                elif temp < 10:
+                    answer += "Холодно, одевайся теплее."
+                elif temp > 25:
+                    answer += "Жарень."
+                else:
+                    answer += "На улице вроде норм!!!"
             else:
-                answer += "На улице вроде норм!!!"
+                pass
+            
         except Exception:
             answer = "Не найден город, попробуйте ввести название снова.\n"
             print(time.ctime(), "User id:", message.from_user.id)
