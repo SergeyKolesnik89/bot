@@ -138,10 +138,12 @@ def jokes_text(message):
 #Блок погоды
 
 
-@bot.message_handler(commands=['Погода'])
-def cmd_city(message):
-    send = bot.send_message(message.chat.id, 'Введи город')
-    bot.register_next_step_handler(send, city)  # ожидает следующий шаг
+@bot.message_handler(content_types='text')
+def text(message):
+    if message.text == 'Погода':
+        send = bot.send_message(message.chat.id, 'Введи город')
+        bot.register_next_step_handler(send, city)
+
 
 def city(message):
     bot.send_message(message.chat.id, 'Ищу погоду в городе {city}'.format(city=message.text))
