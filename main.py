@@ -143,7 +143,7 @@ def jokes_text(message):
         
         try:
             # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
-            observation = owm.weather_at_place('Петропавловск')
+            observation = owm.weather_at_place(Петропавловск)
             weather = observation.get_weather()
             temp = weather.get_temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
             temp = round(temp)
