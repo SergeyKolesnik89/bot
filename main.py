@@ -140,11 +140,9 @@ def jokes_text(message):
         #text = str(input('>>>   '))
     #elif message.text.lower():
     else:
-        if message.text == text:
-            bot.send_message(message.from_user.id,  text + "\n")
-        
-        else:
-            bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать")
+        def repeat_all_messages(message): # Название функции не играет никакой роли
+            bot.send_message(message.chat.id, message.text)
+            
         
 
 
