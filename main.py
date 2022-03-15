@@ -138,7 +138,7 @@ def jokes_text(message):
         bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         #text = str(input('>>>   '))
-        #if message.text == (text):
+    elif message.text == (text):
         URL = ('https://www.google.com/search?q=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0 ' + text)
         HEADERS = {
             'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
