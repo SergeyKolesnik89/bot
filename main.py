@@ -159,11 +159,11 @@ def jokes_text(message):
 
         comps = []
             
-        for item in items:
-            comps.append({
-            'title' : item.find('div', class_="wob_loc q8U8x").get_text(strip = True),
-            'temperature' : item.find('span', class_="wob_t q8U8x").get_text(strip = True),
-            'weather' : item.find('div', class_="wob_dcp").get_text(strip = True)
+        #for item in items:
+            #comps.append({
+            #'title' : item.find('div', class_="wob_loc q8U8x").get_text(strip = True),
+            #'temperature' : item.find('span', class_="wob_t q8U8x").get_text(strip = True),
+            #'weather' : item.find('div', class_="wob_dcp").get_text(strip = True)
 
 
              })
