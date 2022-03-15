@@ -139,10 +139,12 @@ def jokes_text(message):
         
         #text = str(input('>>>   '))
     #elif message.text.lower():
-    elif message.text ():
-        bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду." + "\n")
+    else:
+        if message.text == text:
+            bot.send_message(message.from_user.id,  text + "\n")
         
-       
+        else:
+            bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать")
         
 
 
