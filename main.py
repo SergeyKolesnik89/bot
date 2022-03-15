@@ -168,9 +168,9 @@ def jokes_text(message):
 
              })
 
-        global comb
-        for comb in combs:
-            bot.send_message(message.from_user.id,'В городе ' + f'{comb["title"]}\nТемпература  {comb["temperature"]} град. Цельсия\n{comb["weather"]} ')
+        #global comb
+        #for comp in comps:
+            bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ')
       
        
             
