@@ -145,7 +145,7 @@ def jokes_text(message):
 
 
 
-    elif repeat_all_messages(message): # Название функции не играет никакой роли
+    else: 
         bot.send_message(message.from_user.id, message.text)
 
       
