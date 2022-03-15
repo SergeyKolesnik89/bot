@@ -56,7 +56,9 @@ keyboard1.row( 'В этот день', 'О разработчиках')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
 
-
+@bot.message_handler(content_types=["text"])
+def repeat_all_messages(message): # Название функции не играет никакой роли
+    bot.send_message(message.from_user.id, message.text)
     
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -140,9 +142,7 @@ def jokes_text(message):
         #text = str(input('>>>   '))
     #elif message.text.lower():
     
-@bot.message_handler(content_types=["text"])
-def repeat_all_messages(message): # Название функции не играет никакой роли
-    bot.send_message(message.chat.id, message.text)
+
         
 
 
