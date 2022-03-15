@@ -137,35 +137,32 @@ def jokes_text(message):
     elif message.text == 'Погода':
         bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
-        try:
-            mgr = owm.weather_manager()
-                # Имя города пользователь вводит в чат, после этого мы его передаем в функцию
-            observation = mgr.weather_at_place(message.text)
-            w = observation.weather
-            temp = w.temperature('celsius')["temp"] # Присваиваем переменной значение температуры из таблицы
-                #temp = round(temp)
-                #print(time.ctime(), "User id:", message.from_user.id)
-                #print(time.ctime(), "Message:", message.text.title(), temp, "C", weather.get_detailed_status())
+        
+        #text = str(input('>>>   '))
+        if message.text == (text):
+            URL = ('https://www.google.com/search?q=%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0 ' + text)
+            HEADERS = {
+                'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
+            }
+            response = requests.get(URL, headers = HEADERS)
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-                # Формируем и выводим ответ
-            answer = "В городе " + message.text.title() + " сейчас " + weather.get_detailed_status() + "." + "\n"
-            answer += "Температура около: " + str(temp) + " С" + "\n\n"
-            if temp < -10:
-                answer += "Пи**ц как холодно, одевайся как танк!"
-            elif temp < 10:
-                answer += "Холодно, одевайся теплее."
-            elif temp > 25:
-                answer += "Жарень."
-            else:
-                answer += "На улице вроде норм!!!"
-        except:
-            pass
-        #except Exception:
-            #answer = "Не найден город, попробуйте ввести название снова.\n"
-            #print(time.ctime(), "User id:", message.from_user.id)
-            #print(time.ctime(), "Message:", message.text.title(), 'Error')
+            items = soup.findAll('div', class_="nawv0d")#вывод региона
 
-        bot.send_message(message.chat.id, answer)  # Ответить сообщением
+            comps = []
+            print (URL)
+            for item in items:
+                comps.append({
+                'title' : item.find('div', class_="wob_loc q8U8x").get_text(strip = True),
+                'temperature' : item.find('span', class_="wob_t q8U8x").get_text(strip = True),
+                'weather' : item.find('div', class_="wob_dcp").get_text(strip = True)
+
+
+                })
+
+            global comp
+            for comp in comps:
+                bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ')
     
                
        
