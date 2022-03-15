@@ -168,8 +168,8 @@ def jokes_text(message):
 
              })
 
-        #global comb
-        #for comp in comps:
+        #global comp
+        for comp in comps:
             bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ')
       
        
