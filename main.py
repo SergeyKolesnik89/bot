@@ -135,7 +135,7 @@ def jokes_text(message):
 
 
     elif message.text == 'Погода':
-        bot.send_message(message.from_user.id, "Здравствуйте. Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
+        bot.send_message(message.from_user.id, "Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         #text = str(input('>>>   '))
     #elif message.text.lower():
@@ -167,7 +167,7 @@ def jokes_text(message):
 
              })
 
-        global comp
+        #global comp
         for comp in comps:
             bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ')
       
