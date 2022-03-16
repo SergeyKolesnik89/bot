@@ -121,7 +121,7 @@ def jokes_text(message):
                             
             })
 
-        global comp
+        #global comp
         for comp in comps:
             bot.send_message(message.chat.id,(f'{comp["title"]}  '))
             
