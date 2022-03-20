@@ -102,8 +102,8 @@ def jokes_text(message):
 
 #Блок событий
 
-    elif message.text == '/start':
-        bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀")
+    #elif message.text == '/start':
+        #bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀")
     
     elif message.text == 'В этот день':
         try:
