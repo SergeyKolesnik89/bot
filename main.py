@@ -112,7 +112,7 @@ def jokes_text(message):
         response = requests.get(URL, headers = HEADERS)
         soup = BeautifulSoup(response.content, 'html.parser')
         
-        items = soup.findAll('div', class_='listing')
+        items = soup.findAll('div', class_='listing_wr')
         comps = []
 
         for item in items:
