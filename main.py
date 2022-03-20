@@ -106,28 +106,28 @@ def jokes_text(message):
         #bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀")
     
     elif message.text == 'В этот день':
+        #try:
+        URL = 'https://kakoysegodnyaprazdnik.ru/'
+        HEADERS = {
+            'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
+        }
+        response = requests.get(URL, headers = HEADERS)
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        items = soup.findAll('div', class_='main')
+        comps = []
+
+        for item in items:
+             comps.append({
+             'title' : item.find('span').get_text(strip = True)
+
+             })
         try:
-            URL = 'https://kakoysegodnyaprazdnik.ru/'
-            HEADERS = {
-                'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
-            }
-            response = requests.get(URL, headers = HEADERS)
-            soup = BeautifulSoup(response.content, 'html.parser')
-
-            items = soup.findAll('div', class_='main')
-            comps = []
-
-            for item in items:
-                comps.append({
-                'title' : item.find('span').get_text(strip = True)
-
-                })
-
             global comp
             for comp in comps:
                 bot.send_message(message.chat.id,(f'{comp["title"]}  '))
         except:
-            bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением, терпения))) 👨‍🔧')
+            bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧')
             
 
 
