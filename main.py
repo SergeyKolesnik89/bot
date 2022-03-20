@@ -97,7 +97,7 @@ def jokes_text(message):
     elif message.text == 'Привет':
         bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot 🐿 и у меня лапки ^^ ')
 
-    elif message.text.lower() == 'о разработчиках':
+    elif message.text.lower() == 'о разработчиках 💻':
         bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻👨‍💻')
 
 #Блок событий
@@ -105,7 +105,7 @@ def jokes_text(message):
     #elif message.text == '/start':
         #bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀")
     
-    elif message.text == 'В этот день':
+    elif message.text == 'В этот день 🎈':
         #try:
         URL = 'https://kakoysegodnyaprazdnik.ru/'
         HEADERS = {
@@ -137,7 +137,7 @@ def jokes_text(message):
 #Блок погоды
 
 
-    elif message.text == 'Погода':
+    elif message.text == 'Погода 🌤':
         bot.send_message(message.from_user.id, " 🌤🌥🌦 Вы можете узнать здесь погоду. Просто напишите название города." + "\n")
         
         #text = str(input('>>>   '))
