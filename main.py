@@ -105,7 +105,7 @@ def jokes_text(message):
         bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
     
     elif message.text == 'В этот день':
-        URL = 'https://file.liga.net/holidays/'
+        URL = 'https://kakoj-segodnja-prazdnik.com/'
         HEADERS = {
             'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
         }
