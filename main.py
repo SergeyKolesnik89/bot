@@ -83,7 +83,7 @@ def jokes_text(message):
             for row in rows:
                     
                     
-                bot.send_message(message.chat.id,row[0])
+                bot.send_message(message.chat.id,row[0] + '😀😁😂')
 
 
 
