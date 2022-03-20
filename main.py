@@ -70,7 +70,7 @@ def start(message):
 
 def jokes_text(message):
     
-    if message.text.lower() == 'анекдот':
+    if message.text.lower() == 'анекдот 😂':
         con = sql.connect('anekdot.db')
         with con:
             cur = con.cursor()
