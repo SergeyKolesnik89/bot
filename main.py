@@ -61,7 +61,7 @@ keyboard1.row( 'В этот день', 'О разработчиках')
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
-    bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
+    bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀",  reply_markup=keyboard1)
         
 
 @bot.message_handler(content_types=['text'])
@@ -94,10 +94,10 @@ def jokes_text(message):
 
 #Блок приветствия
     elif message.text == 'Привет':
-        bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot и у меня лапки ^^ ')
+        bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot 🐿 и у меня лапки ^^ ')
 
     elif message.text.lower() == 'о разработчиках':
-        bot.send_message(message.from_user.id, 'Мы скромные *_*')
+        bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻')
 
 #Блок событий
 
@@ -126,7 +126,7 @@ def jokes_text(message):
             for comp in comps:
                 bot.send_message(message.chat.id,(f'{comp["title"]}  '))
         except:
-            bot.send_message(message.from_user.id, 'Возникли проблемы со сбором информации, мы работаем над устранением, терпения)))')
+            bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением, терпения))) 👨‍🔧')
             
 
 
