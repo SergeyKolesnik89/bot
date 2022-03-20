@@ -112,13 +112,13 @@ def jokes_text(message):
         response = requests.get(URL, headers = HEADERS)
         soup = BeautifulSoup(response.content, 'html.parser')
         
-        items = soup.findAll('div', class_='item')
+        items = soup.findAll('div', class_='blog')
         comps = []
 
         for item in items:
             comps.append({
             #'title' : item.find('href').get_text(strip = True)
-            'title' : item.find('a', class_ = 'href').get_text(strip = True)                
+            'title' : item.find('div', class_ = 'art-postcontent clearfix').get_text(strip = True)                
             })
 
         global comp
