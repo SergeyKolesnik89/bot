@@ -193,7 +193,7 @@ def webhook():
     return '!', 200
 
    
-
+bot.send_message(message.from_user.id, 'Обновляйте или чистите историю, у нас происходят обновления!!!')
 
 
 if __name__ == '__main__':
