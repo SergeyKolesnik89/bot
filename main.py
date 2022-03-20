@@ -117,8 +117,8 @@ def jokes_text(message):
 
         for item in items:
             comps.append({
-            'title' : item.find('href').get_text(strip = True)
-                            
+            #'title' : item.find('href').get_text(strip = True)
+            'title' : item.find('a', class_ = 'href').get_text(strip = True)                
             })
 
         global comp
