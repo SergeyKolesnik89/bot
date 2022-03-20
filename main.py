@@ -60,7 +60,7 @@ keyboard1.row( 'В этот день', 'О разработчиках')
     
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
+    bot.send_message(message, 'Hello, ' + message.from_user.first_name)
     
     bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀",  reply_markup=keyboard1)
         
