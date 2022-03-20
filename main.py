@@ -60,8 +60,8 @@ keyboard1.row( 'В этот день', 'О разработчиках')
     
 @bot.message_handler(commands=['start'])
 def start(message):
-    #ot.send_message(message, 'Hello, ' + message.from_user.first_name)
-    bot.send_message(message, 'Hello, ' + from_user.first_name)
+    #bot.send_message(message, 'Hello, ' + message.from_user.first_name)
+    #bot.send_message(message, 'Hello, ' + from_user.first_name)
     #ot.send_message(message.from_user.first_name + "Я сказала стартуем ))) 🚀")#,  reply_markup=keyboard1)
         
 
@@ -98,12 +98,13 @@ def jokes_text(message):
         bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot 🐿 и у меня лапки ^^ ')
 
     elif message.text.lower() == 'о разработчиках':
-        bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻')
+        bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻👨‍💻')
 
 #Блок событий
 
     elif message.text == '/start':
-        bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
+        bot.send_message(message, 'Hello, ' + from_user.first_name)
+        #bot.send_message(message.from_user.id, "Я сказала стартуем )))",  reply_markup=keyboard1)
     
     elif message.text == 'В этот день':
         try:
