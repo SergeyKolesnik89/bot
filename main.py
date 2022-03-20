@@ -117,7 +117,7 @@ def jokes_text(message):
 
         for item in items:
             comps.append({
-            'title' : item.find('span').get_text(strip = True)
+            'title' : item.find('item').get_text(strip = True)
                             
             })
 
