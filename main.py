@@ -62,9 +62,17 @@ keyboard1.row( 'В этот день 🎈', 'О разработчиках 💻'
 def start(message):
     #bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
     user_id = message.from_user.id
-    with open ('id.txt', 'a') as file:
-        file.write(f'ID:{user_id}\n')
     bot.send_message(message.from_user.id, "Стартуем, я сказала стартуем ))) 🚀",  reply_markup=keyboard1)
+    con = sql.connect('id.db')
+    with con:
+        cur = con.cursor()
+        cur.execute("CREATE TABLE IF NOT EXISTS 'test' ( 'user_id' STRING)")
+ 
+        cur.execute(f"INSERT INTO 'test' VALUES ('ID:{user_id}')")
+            
+
+        con.commit()
+        cur.close()
         
 
 @bot.message_handler(content_types=['text'])
