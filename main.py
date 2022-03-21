@@ -61,7 +61,9 @@ keyboard1.row( 'В этот день 🎈', 'О разработчиках 💻'
 @bot.message_handler(commands=['start'])
 def start(message):
     #bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
-    
+    user_id = message.from_user.id
+    with open ('id.txt', 'a') as file:
+        file.write(f'ID:{user_id}\n')
     bot.send_message(message.from_user.id, "Стартуем, я сказала стартуем ))) 🚀",  reply_markup=keyboard1)
         
 
