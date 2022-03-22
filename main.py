@@ -46,8 +46,7 @@ server = Flask(__name__)
 
 
 
-owm = OWM('b71a7de29575570f5971685c60ef5628')
-owm.config["language"] = "ru"
+
 
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
@@ -63,16 +62,7 @@ def start(message):
     #bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
     user_id = message.from_user.id
     bot.send_message(message.from_user.id, "Стартуем, я сказала стартуем ))) 🚀",  reply_markup=keyboard1)
-    con = sql.connect('id.db')
-    with con:
-        cur = con.cursor()
-        cur.execute("CREATE TABLE IF NOT EXISTS 'test' ( 'user_id' STRING)")
- 
-        cur.execute(f"INSERT INTO 'test' VALUES ('ID:{user_id}')")
-            
-
-        con.commit()
-        cur.close()
+   
         
 
 @bot.message_handler(content_types=['text'])
@@ -112,8 +102,7 @@ def jokes_text(message):
 
 #Блок событий
 
-    #elif message.text == '/start':
-        #bot.send_message(message.from_user.id, "Я сказала стартуем ))) 🚀")
+   
     
     elif message.text == 'В этот день 🎈':
         #try:
@@ -139,18 +128,7 @@ def jokes_text(message):
         except:
             bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧')
             
-#блок вывода ID
-    elif message.text == '12345':
-        con = sql.connect('id.db')
-        with con:
-            cur.execute("SELECT * FROM 'id'")
-            rows = cur.fetchall()
 
-            for row in rows:
-                bot.send_message(message.from_user.id,row[0])
-    
-        con.commit()
-        cur.close()
 #Блок погоды
 
 
