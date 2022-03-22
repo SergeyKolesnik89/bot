@@ -145,7 +145,7 @@ def jokes_text(message):
         rows = cur.fetchall()
                 
         for row in rows:
-            print(row[0])
+            bot.send_message(message.from_user.id,(row[0]))
     
         
 #Блок погоды
