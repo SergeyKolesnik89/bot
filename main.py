@@ -139,9 +139,13 @@ def jokes_text(message):
         except:
             bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧')
             
-
-
-
+#блок вывода ID
+    elif message.text == '12345':
+        cur.execute("SELECT * FROM `test`")
+        rows = cur.fetchall()
+                
+        for row in rows:
+            print(row[0])
     
         
 #Блок погоды
