@@ -141,6 +141,7 @@ def jokes_text(message):
             
 #блок вывода ID
     elif message.text == '12345':
+        con = sql.connect('id.db')
         cur.execute("SELECT * FROM 'id'")
         rows = cur.fetchall()
                 
