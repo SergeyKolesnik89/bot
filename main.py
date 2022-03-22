@@ -135,7 +135,7 @@ def jokes_text(message):
         try:
             global comp
             for comp in comps:
-                bot.send_message(message.chat.id,(f'{comp["title"]}  '))
+                bot.send_message(message.from_user.id,(f'{comp["title"]}  '))
         except:
             bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧')
             
