@@ -95,10 +95,10 @@ def jokes_text(message):
 
 #Блок приветствия
     elif message.text == 'Привет':
-        bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot 🐿 и у меня лапки ^^ ')
+        bot.send_message(message.from_user.id, 'О, привет, меня зовут Белка_bot 🐿 и у меня лапки ^^ ',  reply_markup=keyboard1)
 
     elif message.text.lower() == 'о разработчиках 💻':
-        bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻👨‍💻')
+        bot.send_message(message.from_user.id, 'Мы скромные 👩‍💻👨‍💻',  reply_markup=keyboard1)
 
 #Блок событий
 
@@ -126,7 +126,7 @@ def jokes_text(message):
             for comp in comps:
                 bot.send_message(message.from_user.id,(f'{comp["title"]}  '))
         except:
-            bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧')
+            bot.send_message(message.from_user.id, '❌❌❌ Возникли проблемы со сбором информации, мы работаем над устранением 👨‍🔧',  reply_markup=keyboard1)
             
 
 #Блок погоды
@@ -167,7 +167,7 @@ def jokes_text(message):
 
         #global comp
         for comp in comps:
-            bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ')
+            bot.send_message(message.from_user.id,'В городе ' + f'{comp["title"]}\nТемпература  {comp["temperature"]} град. Цельсия\n{comp["weather"]} ',  reply_markup=keyboard1)
       
        
             
