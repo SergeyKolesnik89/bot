@@ -1,6 +1,6 @@
 
 
-import os
+import osos
 
 from flask import Flask, request
 #телебот
@@ -51,7 +51,7 @@ server = Flask(__name__)
 keyboard1 = types.InlineKeyboardMarkup()
 keyboard1 = telebot.types.ReplyKeyboardMarkup()
 keyboard1.row('Анекдот 😂', 'Погода 🌤')
-keyboard1.row( 'Курс валют 💰', 'О разработчиках 💻')
+keyboard1.row( 'В этот день 🎈', 'О разработчиках 💻')
 #keyboard1.row('Гороскоп', 'В этот день', 'О разработчиках')
 
 
@@ -91,93 +91,7 @@ def jokes_text(message):
         con.commit()
         cur.close()
 
-#блок валют
-
-    elif message.text == 'Курс валют 💰':
-
     
-        keyboard = types.InlineKeyboardMarkup()
-        key_tenge = types.InlineKeyboardButton(text='🇰🇿', callback_data='tenge')
-
-        keyboard.add(key_tenge)
-        bot.send_message(message.from_user.id, text='Валюта в тенге', reply_markup=keyboard)
-
-
-
-
-        keyboard = types.InlineKeyboardMarkup()
-        key_ruble = types.InlineKeyboardButton(text='🇷🇺', callback_data='ruble')
-            
-        keyboard.add(key_ruble)
-        bot.send_message(message.from_user.id, text='Валюта в рублях', reply_markup=keyboard)
-                    
-        
-@bot.callback_query_handler(func=lambda call: True)
-
-def callback_worker(call):
-    
-    if call.data == "tenge":
-        print('TENGE')
-        URL = ('https://prodengi.kz/kurs-valyut' )
-        HEADERS = {
-            'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
-        }
-        response = requests.get(URL, headers = HEADERS)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        items = soup.findAll('div', class_='national-bank-rate-simple-detail__item')
-        
-        
-        comps = []
-        print (URL)
-        for item in items:
-            comps.append({
-
-            'title' : item.find('div', class_='rate-title').get_text(strip = True),
-
-            'price' : item.find('p', class_= 'bold').get_text(strip = True)
-            
-                           
-            })
-            
-        global comp
-        for comp in comps:
-            
-        
-            print ( f'{comp["title"]}  {comp["price"]} ₸')
-            bot.send_message(call.message.chat.id, f'{comp["title"]}  {comp["price"]} ₸\n')
-
-
-
-        
-    elif call.data == 'ruble':
-        print('RUBLE')
-        URL = ('http://www.finmarket.ru/currency/rates/' )
-        HEADERS = {
-            'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36'
-        }
-        response = requests.get(URL, headers = HEADERS)
-        soup = BeautifulSoup(response.content, 'html.parser')
-      
-        items = soup.findAll('div', class_='info')#вывод региона
-
-        comps = []
-        print (URL)
-        for item in items:
-            comps.append({
-
-            'title' : item.find('div', class_='title').get_text(strip = True),
-
-            'price' : item.find('div', class_='value').get_text(strip = True)
-           
-            })
-            
-        #global comp
-        for comp in comps:
-       
-            print ( f'{comp["title"]}  {comp["price"]} ₽')
-            bot.send_message(call.message.chat.id, f'{comp["title"]}  {comp["price"]} ₽\n')
-        
-
 
 #Блок приветствия
     elif message.text == 'Привет':
@@ -279,9 +193,3 @@ def webhook():
 
 if __name__ == '__main__':
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
-
-
-
-
-
-
